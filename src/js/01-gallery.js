@@ -1,6 +1,6 @@
-import { galleryItems } from './gallery-items';
-import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+import SimpleLightbox from 'simplelightbox';
+import { galleryItems } from './gallery-items';
 
 const galleryRef = document.querySelector('.gallery');
 const itemsMarkup = createGalleryItems(galleryItems);
@@ -10,13 +10,12 @@ galleryRef.insertAdjacentHTML('beforeend', itemsMarkup);
 function createGalleryItems(gallery) {
   return gallery
     .map(({ preview, original, description }) => {
-      return `<li>
+      return `
 				<a class="gallery__item" href="${original}">
                     <img class="gallery__image"
                         src="${preview}" 
                         alt="${description}" />
-                </a>
-			</li>`;
+                </a>`;
     })
     .join('');
 }
